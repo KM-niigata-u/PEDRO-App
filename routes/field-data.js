@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
   res.header('Content-Type', 'application/json; charset=utf-8');
   var data = [];
 
-  readableStream.pipe(parse)
+  readableStream.pipe(parse);
 
   parse.on('readable', () => {
     var tmp;
@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
   parse.on('end', () => {
     console.log(data);
     res.send(data);
-  })
+  });
 
 
 
