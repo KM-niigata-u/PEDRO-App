@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h2= title
+  
+  //- table(border='1')
+  //-   - each doc in docs
+  //-     tr
+  //-       td(rowspan='3'): a(href='/data/#{doc.label}')=doc.label
+  //-       td(rowspan='3')= doc.discription
+  //-       - each d in doc.item
+  //-         td= d.name
+  //-       td(rowspan='3'): a(href='/graph/#{doc.label}/?dataname1=Temperature') グラフ
+  //-       td(rowspan='3'): a(href='/admin/delete/#{doc._id}') 削除
+  //-       td(rowspan='3'): a(href='/admin/add/#{doc._id}') データの追加
+  //-       tr
+  //-         - each d in doc.item
+  //-           td= d.type
+  //-       tr
+  //-         - each d in doc.item
+  //-           td= d.place
+            
+  - each doc in docs
+    table(border='1')
+      tr
+        td(rowspan='2'): a(href='/data/#{doc.label}')=doc.label
+        td: a(href='/admin/delete/#{doc._id}') 削除
+        tr
+          td: a(href='/admin/add/#{doc._id}') データの追加
+          

@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  p= 'ラベル：' + doc.label
+  
+  form(action='/admin/add/csv',method='post',enctype='multipart/form-data')
+    input(type='hidden',name='id',value='#{doc._id}')
+    input(type='hidden',name='label',value='#{doc.label}')
+    input(type='file',name='file',required)
+    br
+    input(type='submit',value='送信')

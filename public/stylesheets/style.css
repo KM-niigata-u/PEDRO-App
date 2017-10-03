@@ -1,8 +1,32 @@
 body {
-  padding: 50px;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+header {
+  padding-bottom: 3px;
+  border-bottom: solid;
+  border-color: #b8e6b5;
+}
+header ul {
+  padding: 0px;
+  margin: 0px;
+}
+header ul li {
+  display: inline-block;
+  margin-right: 3px
 }
 
 a {
   color: #00B7FF;
+}
+a:hover {
+  background-color: #f4e9e7;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
 }

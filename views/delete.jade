@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  p= 'ラベル：' + doc.label
+  
+  form(action='/admin/remove',method='post')
+    input(type='hidden',name='id',value='#{doc._id}')
+    input(type='submit',value='DELETE')

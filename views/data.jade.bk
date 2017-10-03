@@ -1,0 +1,37 @@
+extends layout
+
+block meta
+  script(src='/js/showSensorData.js')
+
+block content
+  h2= title
+
+  form(action='/data/search/#{label}',method='post')
+    p date
+    input(type='date',name='date',value='#{today}',min='2015-01-01')
+    br
+    p time
+    input(type='time',name='time',step='3600')
+    br
+    p name
+    input(type='text',name='name')
+    br
+    input(type='submit',value='検索')
+  hr
+  
+  table(border='1')
+    //- - each doc in docs
+    //-   tr
+    //-     td= doc.time
+    //-     - each d in doc.data
+    //-       td: a(href='/graph/#{doc.label}/?dataname1=#{d.name}')= d.name
+    //-       td= d.value
+          
+    - each doc in docs
+      tr
+        td(rowspan='2')= doc.time
+        - each d in doc.data
+          td: a(href='/graph/#{doc.label}/?dataname1=#{d.name}')= d.name
+        tr
+          - each d in doc.data
+            td= d.value

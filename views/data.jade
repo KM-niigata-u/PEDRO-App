@@ -1,0 +1,43 @@
+extends layout
+
+block meta
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js')
+  script(src='/js/showSensorData.js')
+
+block content
+  div(id='label',hidden)= label
+
+  //- form(action='/data/search/#{label}',method='post')
+  //-   p date
+  //-   input(type='date',name='date',value='#{today}',min='2015-01-01')
+  //-   br
+  //-   p time
+  //-   input(type='time',name='time',step='3600')
+  //-   br
+  //-   p name
+  //-   input(type='text',name='name')
+  //-   br
+  //-   input(type='submit',value='検索')
+  //- hr
+  
+  ul(class='nav nav-tabs')
+    li(class="active"): a(href="#tabContent1" data-toggle="tab") 情報
+    li: a(href="#tabContent2" data-toggle="tab") グラフ
+    li: a(href="#tabContent3" data-toggle="tab") 表
+  
+  div(class="tab-content")
+    div(class="tab-pane active" id="tabContent1")
+      h2= title
+      p(id="text-info-discription") info
+      table(id='output-info',border='1')
+      
+    div(class="tab-pane" id="tabContent2")
+      br
+      canvas(id='myChart')
+      br
+      br
+      canvas(id='myChart2')
+      
+    div(class="tab-pane" id="tabContent3")
+      br
+      table(id='output-table',border='1')
